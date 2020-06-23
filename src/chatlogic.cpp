@@ -18,6 +18,8 @@ ChatLogic::ChatLogic()
 
 ChatLogic::~ChatLogic()
 {
+    if(_chatBot)
+        delete _chatBot;
 }
 
 template <typename T>
