@@ -66,6 +66,7 @@ ChatBot& ChatBot::operator=(const ChatBot& src) {
 ChatBot::ChatBot(ChatBot&& src){
     std::cout << "ChatBot Move Constructor" << std::endl;
     _chatLogic = src._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     src._chatLogic = nullptr;
     _rootNode = src._rootNode;
     src._rootNode = nullptr;
@@ -80,6 +81,7 @@ ChatBot& ChatBot::operator=(ChatBot&& src){
     if(this == &src) return *this;
 
     _chatLogic = src._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     src._chatLogic = nullptr;
     _rootNode = src._rootNode;
     src._rootNode = nullptr;
