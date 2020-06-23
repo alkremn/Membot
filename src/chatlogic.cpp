@@ -18,8 +18,6 @@ ChatLogic::ChatLogic()
 
 ChatLogic::~ChatLogic()
 {
-    if(_chatBot)
-        delete _chatBot;
 }
 
 template <typename T>
@@ -186,9 +184,9 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
             }
         }
     }
+    // Create chatbot and add to graph root node
     ChatBot chatbot("../images/chatbot.png");
     chatbot.SetChatLogicHandle(this);
-    // add chatbot to graph root node
     chatbot.SetRootNode(rootNode);
     SetChatbotHandle(&chatbot);
     rootNode->MoveChatbotHere(std::move(chatbot));

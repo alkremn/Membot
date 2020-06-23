@@ -72,6 +72,7 @@ ChatBot::ChatBot(ChatBot&& src){
     src._rootNode = nullptr;
     _currentNode = src._currentNode;
     src._currentNode = nullptr;
+
     _image = src._image;
     src._image = NULL;
 }
@@ -88,6 +89,7 @@ ChatBot& ChatBot::operator=(ChatBot&& src){
     _currentNode = src._currentNode;
     src._currentNode = nullptr;
 
+    if(_image) delete _image;
     _image = src._image;
     src._image = NULL;
     return *this;
